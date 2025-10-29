@@ -8,5 +8,14 @@
 <body>
     <h1>Hello World!</h1>
     <p>This is HTML page to render using flask</p>
+
+    <!-- write python code in html -->
+     {% for x in range (10)%}
+        {% if x%2 == 0 %}
+            <p>Even {{x}}</p>
+        {% else %}
+            <p>Odd {{x}}</p>
+        {% endif %}
+    {% endfor %}
 </body>
 </html>
