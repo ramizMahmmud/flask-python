@@ -9,14 +9,14 @@ app.permanent_session_lifetime = timedelta(minutes=5)
 
 @app.route('/')
 def index():
-    return "<h1>Welcome</h1>"
+    return render_template("home.html")
 
 
 @app.route('/user')
 def user():
     if "usr" in session:
         user = session["usr"]
-        return f"<h1>{user}</h1>"
+        return render_template("user.html", user = user)
     else:
         return redirect(url_for("login"))
 
