@@ -1,11 +1,14 @@
 from flask import Flask, redirect, session, render_template, url_for, request, flash
 from datetime import timedelta
-
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
 app.secret_key = b"sdihfauie"
-
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# Initialize database
+db = SQLAlchemy(app)
 
 @app.route("/")
 def home():
