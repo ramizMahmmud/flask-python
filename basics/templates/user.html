@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Hello {{user}} </h1>
-
+{# <h1>Hello {{user}} </h1> #}
+<form>
+    <input type="email" placeholder="Email" name="email" value="{{email if email}}"/>
+    <input type="submit" value="SUBMIT"/>
+</form>
 {% endblock  content%}
