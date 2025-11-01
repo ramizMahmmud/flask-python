@@ -10,6 +10,13 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 # Initialize database
 db = SQLAlchemy(app)
 
+# create database class
+class users(db.Model):
+    _id = db.Column("id", db.Integer, primary_key = True)
+    name = db.Column(db.String(100))
+    email = db.email(db.String(100))
+
+
 @app.route("/")
 def home():
     return render_template("home.html")
@@ -44,4 +51,5 @@ def logout():
     return redirect(url_for("login"))
 
 if __name__ == "__main__":
+    db.create_all
     app.run(debug=True)
