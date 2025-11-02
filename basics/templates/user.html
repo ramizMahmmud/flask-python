@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-{# <h1>Hello {{user}} </h1> #}
+{%if not email%}
 <form>
     <input type="email" placeholder="Email" name="email" value="{{email if email}}"/>
     <input type="submit" value="SUBMIT"/>
 </form>
+{%else%}
+<h1>Hello {{name}}! Your Email {{email}}</h1>
+
+{%endif%}
 {% endblock  content%}
